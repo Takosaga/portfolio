@@ -173,6 +173,23 @@
                     .next { right: 15px; }
                     .nav-btn { padding: 14px 12px; font-size: 24px; }
                 }
+
+                /* Hover effects for clickable thumbnails */
+                .visualizations-grid figure {
+                    position: relative;
+                    display: inline-block;
+                    cursor: pointer;
+                    transition: all 0.2s ease;
+                }
+
+                .visualizations-grid figure:hover img {
+                    filter: brightness(0.5);
+                }
+
+                .visualizations-grid figure:hover {
+                    border-color: rgba(255, 255, 255, 0.6);
+                    transform: scale(1.03);
+                }
             </style>
 
             <script>
