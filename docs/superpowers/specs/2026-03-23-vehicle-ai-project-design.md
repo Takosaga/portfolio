@@ -2,7 +2,8 @@
 
 **Date:** 2026-03-23  
 **Topic:** Update project3.html to reflect vehicle classification project with YOLOv8  
-**Author:** Gonzalo Gamez
+**Author:** Gonzalo Gamez  
+**Goal:** Transform generic team lead page into specific project manager showcase for Riga vehicle detection work
 
 ---
 
@@ -55,7 +56,7 @@ Rewrite to emphasize:
 - Established communication channels for distributed team
 - Maintained comprehensive project documentation
 - Implemented agile practices (sprint planning, progress tracking)
-- Facilitated collaboration among Data Engineer (Dmitrijs), Data Analyst (Eden), and Project Manager (user)
+- Facilitated collaboration among the 3-member team: Data Engineer (Dmitrijs), Data Analyst (Eden), and Project Manager (Gonzalo Gamez/user)
 
 ### 4. Features Section
 
@@ -73,10 +74,18 @@ Rewrite to emphasize:
 7. **Augmentation Strategy Oversight:** Directed Albumentations implementation for data transformations (rotations, brightness adjustments) to improve model robustness
 8. **Evaluation Process Management:** Oversaw precision, recall, and mAP metrics collection across test sets
 
-**Vehicle Categories Highlight:**
+#### Vehicle Categories Highlight:
 - **V (Passenger Vehicles):** Cars for personal transportation - significant traffic baseline
 - **C (Cargo Vehicles):** Commercial vehicles C1-C4 (vans to trucks with trailers)
 - **S (Buses):** Public transport vehicles for traffic flow analysis
+
+#### Technical Pipeline Oversight:
+5. **Data Collection Management:** Supervised webcam feed processing via FFmpeg; orchestrated image storage in Google Cloud Platform
+6. **Annotation Coordination:** Leveraged CVAT for precise vehicle labeling across V (Passenger), C (Cargo), and S (Bus) categories
+7. **Augmentation Strategy Oversight:** Directed Albumentations implementation for data transformations (rotations, brightness adjustments) to improve model robustness
+8. **Evaluation Process Management:** Oversaw precision, recall, and mAP metrics collection across test sets
+
+---
 
 ### 5. Tech Stack Section
 
