@@ -24,12 +24,19 @@ The page follows the existing portfolio structure with a single HTML file that p
 ```
 projects/project1.html          # Main page (to be modified)
 projects/images/                # Contains all thesis figures
-  - LIME_Spearman_Correlation.png
-  - SHAP_Spearman_Correlation.png
-  - classification_process_XAI.svg
+  - LIME - Spearman Correlation.svg
+  - SHAP - Spearman Correlation.svg
+  - classification_process_XAI2.svg
   - Results.png
   - ... (additional figures)
 ```
+
+### Image Gallery Layout
+
+- Use CSS Grid with 2 columns on desktop, 1 column on mobile
+- Each visualization card should have: image + caption
+- Max width for images: 600px to maintain readability
+- Wrap missing images gracefully with descriptive captions
 
 ### Technologies Used
 
