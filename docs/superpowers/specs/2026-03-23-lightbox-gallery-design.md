@@ -20,6 +20,7 @@ Add a full-screen lightbox modal to `projects/project1.html` that allows users t
 - Keyboard navigation (ArrowLeft, ArrowRight, Escape)
 - Click-outside-to-close behavior
 - Smooth fade animations
+- Focus management for accessibility
 
 ### Out of Scope
 - Separate full-size image assets
@@ -35,8 +36,10 @@ Add a full-screen lightbox modal to `projects/project1.html` that allows users t
 
 **Modified:** `projects/project1.html`
 - Add lightbox HTML markup after `.visualizations-grid` section
-- Add lightbox CSS styles (inline or `<style>` block)
+- Add lightbox CSS styles (inline `<style>` block for single-component encapsulation)
 - Add JavaScript for lightbox behavior
+
+**No external file changes** - all styles scoped within the component to avoid polluting global stylesheet.
 
 ### Component Structure
 
@@ -62,7 +65,7 @@ project1.html
 Add after the `.visualizations-grid` closing `</div>`:
 
 ```html
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
     <span class="close-lightbox" aria-label="Close lightbox">&times;</span>
     <button class="nav-btn prev" aria-label="Previous image">&larr;</button>
     <img src="" alt="Full-size visualization" id="lightbox-img">
@@ -74,11 +77,67 @@ Add after the `.visualizations-grid` closing `</div>`:
 
 Add within existing `<style>` block or new style section:
 
+```css
+/* Lightbox Container */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Main Image */
 #lightbox img {
+    display: block;
     max-width: 90%;
     max-height: 85vh;
     border-radius: 8px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close-lightbox {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    font-size: 48px;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.close-lightbox:hover {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+/* Navigation Buttons */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s ease;
 }
 
 .nav-btn:hover {
@@ -137,6 +196,8 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
     }
 
     function attachEventListeners() {
+        if (images.length === 0) return; // Guard clause for empty array
+        
         // Close button
         closeBtn.addEventListener('click', closeLightbox);
         
@@ -237,13 +298,14 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
 | Navigate before first image | Wraps around to last image |
 | Keyboard pressed when closed | No action taken |
 | Lightbox element missing | Script silently fails (safe degradation) |
+| Images array empty | Event listeners not attached, no errors thrown |
 
 ---
 
 ## Testing Checklist
 
 ### Functional Tests
-- [ ] Clicking any thumbnail opens lightbox with that image
+- [ ] Clicking any thumbnail opens lightbox with correct image
 - [ ] Previous button navigates backwards through images
 - [ ] Next button navigates forwards through images
 - [ ] ArrowLeft key navigates to previous image
@@ -257,13 +319,14 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
 - [ ] Lightbox is centered on screen
 - [ ] Image maintains aspect ratio with max-width/max-height constraints
 - [ ] Border-radius matches site style (8px)
-- [ ] Navigation buttons positioned correctly (40px from edges)
+- [ ] Navigation buttons positioned correctly (30px from edges)
 - [ ] Animations are smooth (no jarring transitions)
 
 ### Accessibility Tests
 - [ ] Lightbox has `role="dialog"` and `aria-modal="true"`
 - [ ] Buttons have descriptive `aria-label` attributes
 - [ ] Close button is focusable via Tab key
+- [ ] Focus moves to close button when lightbox opens
 - [ ] Keyboard navigation works without mouse
 
 ---
