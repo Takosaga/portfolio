@@ -52,34 +52,40 @@ Standard portfolio navigation with links to About, Projects, and Contact. No cha
 
 1. **Title & Description**
    - H1: "Evaluating Consistency of XAI Methods in Hate Speech Detection"
-   - Technical description highlighting the research focus on LIME vs SHAP consistency
+   - Concise technical description: Evaluating consistency between LIME and SHAP explanation methods for hate speech detection models using the CardiffNLP RoBERTa-based classifier
 
 2. **About Section**
-   - Overview of the research problem: transparency in automated content moderation
-   - Mention of CardiffNLP RoBERTa-based model as base classifier
-   - Datasets: HateXplain, MLMA, Measuring Hate Speech (Twitter, YouTube, Reddit, Gab)
+   - 2-3 sentence overview focusing on transparency in automated content moderation
+   - Mention of multiple datasets (HateXplain, MLMA, Measuring Hate Speech)
+   - Platforms covered: Twitter, YouTube, Reddit, Gab
 
 3. **Features Section**
-   - Integration of LIME and SHAP explanation frameworks
+   - Integration of LIME and SHAP explanation frameworks with transformer-based model
    - Quantitative evaluation with multiple consistency metrics
    - Stratified sampling across prediction scenarios
-   - Comprehensive visualization tools
+   - Comprehensive visualization tools for explanation analysis
 
 4. **Tech Stack Section**
    - Python
-   - Transformers (Hugging Face)
+   - Transformers (Hugging Face) - CardiffNLP RoBERTa model
    - LIME & SHAP libraries
    - Pandas, NumPy
    - Matplotlib/Seaborn for visualizations
 
-5. **Key Visualizations Gallery**
-   - Consistency metrics heatmaps (Jaccard Similarity, Spearman Correlation, Kendall Tau-b)
-   - Example explanation heatmaps for individual samples
-   - Classification process diagrams
-   - Results summary charts
+5. **Technical Skills Demonstrated**
+   - **Explainable AI**: Integration and evaluation of state-of-the-art explanation techniques for black-box models
+   - **Data Analysis**: Comprehensive exploratory data analysis and statistical evaluation of results
+   - **Data Visualization**: Creation of informative and intuitive visualizations to communicate complex findings
+   - **Research Methodology**: Design and implementation of rigorous experimental protocols to test specific hypotheses
+   - **Python Programming**: Extensive use of Python and relevant libraries
+
+6. **Key Visualizations Gallery**
+    - LIME explanation heatmap (True Positive sample 18694)
+    - SHAP explanation heatmap (True Positive sample 18694)
+    - Comparison of LIME and SHAP results
 
 6. **Links Section**
-   - Single link to GitHub repository: `https://github.com/Takosaga/master_thesis`
+    - Single link to GitHub repository: `https://github.com/Takosaga/master_thesis`
 
 ### Footer (Existing Structure)
 
