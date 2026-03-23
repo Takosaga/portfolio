@@ -74,73 +74,30 @@ Add after the `.visualizations-grid` closing `</div>`:
 
 Add within existing `<style>` block or new style section:
 
-```css
-/* Lightbox Container */
-#lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-#lightbox.active {
-    display: flex;
-    opacity: 1;
-}
-
-/* Main Image */
 #lightbox img {
     max-width: 90%;
     max-height: 85vh;
     border-radius: 8px;
-    box-shadow: 0 5px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* Close Button */
-.close-lightbox {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    color: #fff;
-    font-size: 48px;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.close-lightbox:hover {
-    transform: scale(1.2);
-    opacity: 0.7;
-}
-
-/* Navigation Buttons */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.15);
-    color: #fff;
-    border: none;
-    padding: 20px 16px;
-    font-size: 36px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background 0.3s ease;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .nav-btn:hover {
     background: rgba(255, 255, 255, 0.3);
 }
 
-.prev { left: 40px; }
-.next { right: 40px; }
+.prev { left: 30px; }
+.next { right: 30px; }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .prev { left: 15px; }
+    .next { right: 15px; }
+    
+    .nav-btn {
+        padding: 14px 12px;
+        font-size: 24px;
+    }
+}
 ```
 
 ### JavaScript Implementation
@@ -159,24 +116,68 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
     ];
 
     let currentIndex = 0;
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.close-lightbox');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    
+    // Query selectors for DOM elements
+    const LIGHTBOX_ID = 'lightbox';
+    const LIGHTBOX_IMG_ID = 'lightbox-img';
+    
+    let lightbox, lightboxImg, closeBtn, prevBtn, nextBtn;
 
-    // Open Lightbox
+    // Initialize DOM references when ready
+    function initDOM() {
+        lightbox = document.getElementById(LIGHTBOX_ID);
+        lightboxImg = document.getElementById(LIGHTBOX_IMG_ID);
+        closeBtn = document.querySelector('.close-lightbox');
+        prevBtn = document.querySelector('.prev');
+        nextBtn = document.querySelector('.next');
+        
+        if (!lightbox) return; // Exit if elements not found
+        
+        attachEventListeners();
+    }
+
+    function attachEventListeners() {
+        // Close button
+        closeBtn.addEventListener('click', closeLightbox);
+        
+        // Navigation buttons
+        prevBtn.addEventListener('click', showPreviousImage);
+        nextBtn.addEventListener('click', showNextImage);
+        
+        // Backdrop click (click outside image)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        
+        // Click listeners to existing figures
+        document.querySelectorAll('.visualizations-grid figure').forEach((figure, index) => {
+            figure.addEventListener('click', () => openLightbox(index));
+        });
+    }
+
+    // Open Lightbox with focus management
     function openLightbox(index) {
         currentIndex = index;
         lightboxImg.src = images[currentIndex];
+        
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // Focus management for accessibility
+        if (closeBtn && closeBtn.focus) {
+            closeBtn.focus();
+        }
     }
 
-    // Close Lightbox
+    // Close Lightbox with focus return
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        
+        // Return focus to element that triggered close
+        if (closeBtn && closeBtn.blur) {
+            closeBtn.blur();
+        }
     }
 
     // Show Next Image
@@ -193,22 +194,9 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
         lightboxImg.src = images[currentIndex];
     }
 
-    // Event Listeners
-    closeBtn.addEventListener('click', closeLightbox);
-
-    prevBtn.addEventListener('click', showPreviousImage);
-    nextBtn.addEventListener('click', showNextImage);
-
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
-
-    // Initialize - open with first image
-    openLightbox(0);
-
     // Keyboard Navigation
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
+        if (!lightbox || !lightbox.classList.contains('active')) return;
 
         switch (e.key) {
             case 'ArrowLeft': showPreviousImage(e); break;
@@ -217,10 +205,12 @@ Add before `</body>` (after existing `<script src="../js/main.js">`):
         }
     });
 
-    // Add click listeners to existing figures
-    document.querySelectorAll('.visualizations-grid figure').forEach((figure, index) => {
-        figure.addEventListener('click', () => openLightbox(index));
-    });
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDOM);
+    } else {
+        initDOM();
+    }
 
 })();
 ```
