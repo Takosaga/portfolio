@@ -56,7 +56,7 @@ Rewrite to emphasize:
 - Established communication channels for distributed team
 - Maintained comprehensive project documentation
 - Implemented agile practices (sprint planning, progress tracking)
-- Facilitated collaboration among the 3-member team: Data Engineer (Dmitrijs), Data Analyst (Eden), and Project Manager (Gonzalo Gamez/user)
+- Facilitated collaboration among the 3-member team: Data Engineer (Dmitrijs), Data Analyst (Eden), and Project Manager (Myself)
 
 ### 4. Features Section
 
