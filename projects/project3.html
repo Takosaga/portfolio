@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 3 Title - Developer Portfolio</title>
+    <title>Team Lead - AI Group Project - Developer Portfolio</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="../index.html" class="logo">[Your Name]</a>
+            <a href="../index.html" class="logo">Gonzalo Gamez</a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -25,43 +25,261 @@
 
     <main class="container">
         <article>
-            <h1>[Project 3 Title]</h1>
-            <p class="description">[Detailed project description]</p>
+            <h1>Team Lead - AI Group Project</h1>
+            <p class="description">Technical leadership experience managing a team of 3 members over 2 months, coordinating communication, documentation, and sprint tracking using GitHub Projects.</p>
 
             <h2>About</h2>
-            <p>[More detailed information about the project, its purpose, and what problem it solves]</p>
+            <p>This role involved leading a small team through an 8-week AI group project lifecycle. As team lead, I was responsible for establishing effective communication channels, maintaining comprehensive documentation, implementing agile practices including sprint planning and progress tracking, and facilitating collaboration among team members.</p>
 
             <h2>Features</h2>
             <ul>
-                <li>[Feature 1: Description]</li>
-                <li>[Feature 2: Description]</li>
-                <li>[Feature 3: Description]</li>
+                <li><strong>Communication Management:</strong> Established and maintained clear communication protocols across distributed team members using collaborative platforms</li>
+                <li><strong>Documentation & Knowledge Sharing:</strong> Created and maintained comprehensive project documentation ensuring knowledge transfer and team alignment</li>
+                <li><strong>Sprint Planning & Progress Tracking:</strong> Implemented iterative development cycles with regular planning sessions and progress reviews to maintain momentum</li>
+                <li><strong>Task Assignment & Follow-up:</strong> Managed task distribution and accountability through transparent tracking systems</li>
+                <li><strong>Team Dynamics Facilitation:</strong> Fostered a collaborative environment that encouraged open communication and effective collaboration</li>
             </ul>
 
             <h2>Tech Stack</h2>
             <div class="tech-stack">
-                <span class="tech-badge">[Technology 1]</span>
-                <span class="tech-badge">[Technology 2]</span>
-                <span class="tech-badge">[Technology 3]</span>
+                <span class="tech-badge">GitHub Projects</span>
+                <span class="tech-badge">Git Workflow</span>
+                <span class="tech-badge">Agile Methodology</span>
+                <span class="tech-badge">Stakeholder Communication</span>
+                <span class="tech-badge">Team Leadership</span>
             </div>
 
             <h2>Links</h2>
             <div class="project-links">
-                <a href="[Live Demo URL]" target="_blank" class="btn">Live Demo</a>
-                <a href="[GitHub Repository URL]" target="_blank" class="btn" style="background-color: var(--text-primary); margin-left: 0.5rem;">Source Code</a>
+                <a href="https://github.com/Takosaga/ai_group_project" target="_blank" class="btn">GitHub Repository</a>
+                <a href="https://github.com/users/Takosaga/projects/2/views/1" target="_blank" 
+                   class="btn" style="background-color: var(--text-primary); margin-left: 0.5rem;">
+                    Project Board
+                </a>
+            </div>
+
+            <h2>Visualizations</h2>
+            <div class="visualizations-grid">
+                <figure>
+                    <img src="./images/board_layout_screenshot.png" alt="GitHub Project Board Layout">
+                    <figcaption>Board Layout and Column Organization</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/sprint_tracking_screenshot.png" alt="Sprint Progress Tracking">
+                    <figcaption>Sprint Progress Tracking</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/task_organization_screenshot.png" alt="Task Organization View">
+                    <figcaption>Task Organization and Status</figcaption>
+                </figure>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+                <span class="close-lightbox" aria-label="Close lightbox">&times;</span>
+                <button class="nav-btn prev" aria-label="Previous image">&larr;</button>
+                <img src="" alt="Full-size visualization" id="lightbox-img">
+                <button class="nav-btn next" aria-label="Next image">&rarr;</button>
             </div>
         </article>
     </main>
 
     <footer class="footer container">
         <div class="social-links">
-            <a href="[GitHub URL]" target="_blank" aria-label="GitHub">GitHub</a>
-            <a href="[LinkedIn URL]" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-            <a href="[Email]" aria-label="Email">Email</a>
+            <a href="https://github.com/Takosaga" target="_blank" aria-label="GitHub">GitHub</a>
         </div>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 Gonzalo Gamez. All rights reserved.</p>
     </footer>
 
     <script src="../js/main.js"></script>
+
+    <style>
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox img {
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #fff;
+            font-size: 48px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+
+        .close-lightbox:hover {
+            transform: scale(1.2);
+            opacity: 0.7;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            font-size: 28px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .prev { left: 30px; }
+        .next { right: 30px; }
+
+        @media (max-width: 768px) {
+            .prev { left: 15px; }
+            .next { right: 15px; }
+            .nav-btn { padding: 14px 12px; font-size: 24px; }
+        }
+
+        /* Hover effects for clickable thumbnails */
+        .visualizations-grid figure {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .visualizations-grid figure:hover img {
+            filter: brightness(0.5);
+        }
+
+        .visualizations-grid figure:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.03);
+        }
+    </style>
+
+    <script>
+        // Lightbox Gallery
+        (function() {
+            'use strict';
+
+            const images = [
+                './images/board_layout_screenshot.png',
+                './images/sprint_tracking_screenshot.png',
+                './images/task_organization_screenshot.png'
+            ];
+
+            let currentIndex = 0;
+            
+            const LIGHTBOX_ID = 'lightbox';
+            const LIGHTBOX_IMG_ID = 'lightbox-img';
+            
+            let lightbox, lightboxImg, closeBtn, prevBtn, nextBtn;
+
+            function initDOM() {
+                lightbox = document.getElementById(LIGHTBOX_ID);
+                lightboxImg = document.getElementById(LIGHTBOX_IMG_ID);
+                closeBtn = document.querySelector('.close-lightbox');
+                prevBtn = document.querySelector('.prev');
+                nextBtn = document.querySelector('.next');
+                
+                if (!lightbox) return;
+                
+                attachEventListeners();
+            }
+
+            function attachEventListeners() {
+                if (images.length === 0) return;
+                
+                closeBtn.addEventListener('click', closeLightbox);
+                prevBtn.addEventListener('click', showPreviousImage);
+                nextBtn.addEventListener('click', showNextImage);
+                
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                
+                document.querySelectorAll('.visualizations-grid figure').forEach((figure, index) => {
+                    figure.addEventListener('click', () => openLightbox(index));
+                });
+            }
+
+            function openLightbox(index) {
+                currentIndex = index;
+                lightboxImg.src = images[currentIndex];
+                
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                if (closeBtn && closeBtn.focus) {
+                    closeBtn.focus();
+                }
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                if (closeBtn && closeBtn.blur) {
+                    closeBtn.blur();
+                }
+            }
+
+            function showNextImage(e) {
+                if (e) e.preventDefault();
+                currentIndex = (currentIndex + 1) % images.length;
+                lightboxImg.src = images[currentIndex];
+            }
+
+            function showPreviousImage(e) {
+                if (e) e.preventDefault();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                lightboxImg.src = images[currentIndex];
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox || !lightbox.classList.contains('active')) return;
+
+                switch (e.key) {
+                    case 'ArrowLeft': showPreviousImage(e); break;
+                    case 'ArrowRight': showNextImage(e); break;
+                    case 'Escape': closeLightbox(); break;
+                }
+            });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDOM);
+            } else {
+                initDOM();
+            }
+
+        })();
+    </script>
 </body>
 </html>
