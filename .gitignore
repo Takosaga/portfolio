@@ -1,1 +1,6 @@
-**/superpowers/
+# Ignore superplans and specs folders in docs/superpowers
+docs/superpowers/plans/**/*
+docs/superpowers/specs/**/*
+
+# Also ignore the parent folder if needed (uncomment to enable)
+# **/superpowers/
