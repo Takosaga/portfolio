@@ -1,55 +1,20 @@
-# Developer Portfolio
+# Gonzalo Gamez
 
-A minimal static portfolio website for developers, hosted on GitHub Pages.
+AI Engineer based in Riga, Latvia. Specializing in explainable AI, computer vision, and machine learning applications.
 
-## Features
+## Skills
 
-- Clean, neutral design
-- Responsive layout
-- Project showcase pages
-- Contact form
-- No build tools required
+- **Machine Learning**: Python, Transformers, Hugging Face, LIME, SHAP
+- **Computer Vision**: YOLO, FastAPI, CVAT
+- **Data Analysis**: Pandas, NumPy, Matplotlib, Seaborn
 
-## Getting Started
+## Projects
 
-### Local Development
+- **XAI Methods in Hate Speech Detection** - Evaluating LIME and SHAP explanation consistency using transformer-based models for content moderation transparency.
+- **Ki-67 Cell Detection Backend** - AI-powered pathology analysis using YOLOv11 for automated cell detection and proliferation assessment.
+- **Vehicle Detection in Riga** - Leading an 8-week team project implementing YOLOv8 for vehicle classification with agile practices.
 
-1. Clone the repository:
-    ```bash
-    git clone <repository-url>
-    cd porfolio
-    ```
+## Connect
 
-2. Open `index.html` in a web browser
-
-### GitHub Pages Deployment
-
-1. Push code to GitHub:
-    ```bash
-    git add .
-    git commit -m "Initial portfolio"
-    git push origin main
-    ```
-
-2. Enable GitHub Pages:
-    - Go to repository Settings
-    - Navigate to Pages section
-    - Select "Deploy from branch"
-    - Choose `main` branch and `/ (root)` folder
-    - Click Save
-
-3. Your site will be available at: `https://<username>.github.io/<repo>`
-
-## Customization
-
-Replace all placeholder text marked with `[...]` with your actual content:
-
-- `[Your Name]` - Your name
-- `[Your Bio]` - One-sentence introduction
-- Project titles, descriptions, and links
-- Social media URLs
-- Tech stack items
-
-## License
-
-This portfolio is open source and available under the MIT License.
+- [GitHub](https://github.com/Takosaga)
+- [Email](gonzalo.gamez.lv@gmail.com)

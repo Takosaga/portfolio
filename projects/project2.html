@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 2 Title - Developer Portfolio</title>
+    <title>Ki-67 Cell Detection Backend - Developer Portfolio</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="../index.html" class="logo">[Your Name]</a>
+            <a href="../index.html" class="logo">Gonzalo Gamez</a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
@@ -25,43 +25,280 @@
 
     <main class="container">
         <article>
-            <h1>[Project 2 Title]</h1>
-            <p class="description">[Detailed project description]</p>
+            <h1>Ki-67 Cell Detection Backend</h1>
+            <p class="description">AI-powered backend for automated Ki-67 proliferation assessment from pathology slides using YOLOv11 computer vision and FastAPI.</p>
 
             <h2>About</h2>
-            <p>[More detailed information about the project, its purpose, and what problem it solves]</p>
+            <p>Our solution is an AI-powered automated tool that replaces manual evaluation with computer vision. The system analyzes uploaded pathology slides to automatically annotate and count Ki-67-positive cells within user-selected regions of interest.</p>
+
+            <p>The web application provides interactive ROI selection, allowing pathologists to mark the tumor area for precise analysis. Once selected, the model returns annotated images showing positive and negative cells, along with calculated proliferation metrics including intensity assessment (mild, moderate, strong).</p>
 
             <h2>Features</h2>
             <ul>
-                <li>[Feature 1: Description]</li>
-                <li>[Feature 2: Description]</li>
-                <li>[Feature 3: Description]</li>
+                <li><strong>Automated Detection:</strong> Automatic detection and annotation of Ki-67 positive and negative cells in pathology slides</li>
+                <li><strong>Proliferation Metrics:</strong> Calculation of Ki-67-positive cell percentage with intensity assessment (mild, moderate, strong)</li>
+                <li><strong>Region Selection:</strong> Interactive region of interest selection for pathologist input and accuracy control</li>
+                <li><strong>Distribution Analysis:</strong> Evaluation of Ki-67-positive cell distribution patterns within tissue samples</li>
             </ul>
 
             <h2>Tech Stack</h2>
             <div class="tech-stack">
-                <span class="tech-badge">[Technology 1]</span>
-                <span class="tech-badge">[Technology 2]</span>
-                <span class="tech-badge">[Technology 3]</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">YOLOv11</span>
+                <span class="tech-badge">CVAT</span>
             </div>
+
+            <h2>Technical Skills</h2>
+            <ul class="tech-list">
+                <li><strong>Rapid Prototyping:</strong> Quick API implementation with FastAPI and Uvicorn for efficient model serving</li>
+                <li><strong>Data Management:</strong> CVAT annotation platform setup and training data pipeline creation</li>
+                <li><strong>Computer Vision:</strong> YOLOv11 fine-tuning with medical imaging datasets for cell detection tasks</li>
+            </ul>
 
             <h2>Links</h2>
             <div class="project-links">
-                <a href="[Live Demo URL]" target="_blank" class="btn">Live Demo</a>
-                <a href="[GitHub Repository URL]" target="_blank" class="btn" style="background-color: var(--text-primary); margin-left: 0.5rem;">Source Code</a>
+                <a href="https://github.com/Takosaga/EHH-2025" target="_blank" class="btn">
+                    GitHub Repository
+                </a>
+                <a href="https://youtu.be/4LtwRDbN2_M?si=aUhLdqK5e1WmaQYM" target="_blank" 
+                   class="btn" style="background-color: var(--text-primary); margin-left: 0.5rem;">
+                    Demo Video
+                </a>
+            </div>
+
+            <h2>Visualizations</h2>
+            <div class="visualizations-grid">
+                <figure>
+                    <img src="./images/frontend_of_app.png" alt="Ki-67 Cell Detection Backend - Frontend Interface">
+                    <figcaption>Application Interface</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/Annotated.png" alt="Ki-67 Cell Detection - Annotated Pathology Slide">
+                    <figcaption>Labeled Ki-67 Positive and Negative Cell Detection</figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/intensity.png" alt="Ki-67 Intensity Assessment Results">
+                    <figcaption>Intensity Assessment Visualization</figcaption>
+                </figure>
             </div>
         </article>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+            <span class="close-lightbox" aria-label="Close lightbox">&times;</span>
+            <button class="nav-btn prev" aria-label="Previous image">&larr;</button>
+            <img src="" alt="Full-size visualization" id="lightbox-img">
+            <button class="nav-btn next" aria-label="Next image">&rarr;</button>
+        </div>
+
     </main>
 
     <footer class="footer container">
         <div class="social-links">
-            <a href="[GitHub URL]" target="_blank" aria-label="GitHub">GitHub</a>
-            <a href="[LinkedIn URL]" target="_blank" aria-label="LinkedIn">LinkedIn</a>
-            <a href="[Email]" aria-label="Email">Email</a>
+            <a href="https://github.com/Takosaga" target="_blank" aria-label="GitHub">GitHub</a>
+            <a href="https://www.linkedin.com/in/gonzalo-gamez/" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+            <a href="mailto:gonzalo.gamez.lv@gmail.com" aria-label="Email">Email</a>
         </div>
-        <p>&copy; 2026 [Your Name]. All rights reserved.</p>
+        <p>&copy; 2026 Gonzalo Gamez. All rights reserved.</p>
     </footer>
 
+    <!-- Lightbox Styles -->
+    <style>
+        /* Section Spacing */
+        article > h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox img {
+            display: block;
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: #fff;
+            font-size: 48px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.3s ease;
+        }
+
+        .close-lightbox:hover {
+            transform: scale(1.2);
+            opacity: 0.7;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            font-size: 28px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .prev { left: 30px; }
+        .next { right: 30px; }
+
+        @media (max-width: 768px) {
+            .prev { left: 15px; }
+            .next { right: 15px; }
+            .nav-btn { padding: 14px 12px; font-size: 24px; }
+        }
+
+        /* Hover effects for clickable thumbnails */
+        .visualizations-grid figure {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .visualizations-grid figure:hover img {
+            filter: brightness(0.5);
+        }
+
+        .visualizations-grid figure:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.03);
+        }
+    </style>
+
     <script src="../js/main.js"></script>
+    
+    <!-- Lightbox Gallery Script -->
+    <script>
+        (function() {
+            'use strict';
+
+            const images = [
+    './images/frontend_of_app.png',
+    './images/Annotated.png',
+    './images/intensity.png'
+];
+
+            let currentIndex = 0;
+            
+            const LIGHTBOX_ID = 'lightbox';
+            const LIGHTBOX_IMG_ID = 'lightbox-img';
+            
+            let lightbox, lightboxImg, closeBtn, prevBtn, nextBtn;
+
+            function initDOM() {
+                lightbox = document.getElementById(LIGHTBOX_ID);
+                lightboxImg = document.getElementById(LIGHTBOX_IMG_ID);
+                closeBtn = document.querySelector('.close-lightbox');
+                prevBtn = document.querySelector('.prev');
+                nextBtn = document.querySelector('.next');
+                
+                if (!lightbox) return;
+                
+                attachEventListeners();
+            }
+
+            function attachEventListeners() {
+                if (images.length === 0) return;
+                
+                closeBtn.addEventListener('click', closeLightbox);
+                prevBtn.addEventListener('click', showPreviousImage);
+                nextBtn.addEventListener('click', showNextImage);
+                
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+                
+                document.querySelectorAll('.visualizations-grid figure').forEach((figure, index) => {
+                    figure.addEventListener('click', () => openLightbox(index));
+                });
+            }
+
+            function openLightbox(index) {
+                currentIndex = index;
+                lightboxImg.src = images[currentIndex];
+                
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                if (closeBtn && closeBtn.focus) {
+                    closeBtn.focus();
+                }
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                if (closeBtn && closeBtn.blur) {
+                    closeBtn.blur();
+                }
+            }
+
+            function showNextImage(e) {
+                if (e) e.preventDefault();
+                currentIndex = (currentIndex + 1) % images.length;
+                lightboxImg.src = images[currentIndex];
+            }
+
+            function showPreviousImage(e) {
+                if (e) e.preventDefault();
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                lightboxImg.src = images[currentIndex];
+            }
+
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox || !lightbox.classList.contains('active')) return;
+
+                switch (e.key) {
+                    case 'ArrowLeft': showPreviousImage(e); break;
+                    case 'ArrowRight': showNextImage(e); break;
+                    case 'Escape': closeLightbox(); break;
+                }
+            });
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDOM);
+            } else {
+                initDOM();
+            }
+
+        })();
+    </script>
 </body>
 </html>

@@ -94,7 +94,8 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 6rem 0;
+    padding: 3rem 0;
+    margin-top: 2rem;
     text-align: center;
 }
 
@@ -108,6 +109,57 @@ body {
     font-size: 1.25rem;
     max-width: 600px;
     margin: 0 auto 2rem;
+}
+
+/* Hero Section with Avatar */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--bg-primary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Stack avatar and text vertically on mobile */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .hero-avatar {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
 }
 
 .btn {
@@ -145,7 +197,11 @@ body {
     background-color: var(--bg-secondary);
     border-radius: 8px;
     padding: 1.5rem;
+    text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project-link {
@@ -158,13 +214,40 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Project Card Images */
+.project-image-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 1rem;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-image-wrapper {
+        height: 160px;
+    }
+}
+
 .project-card h3 {
-    margin-bottom: 0.5rem;
+    margin: 0 auto 0.5rem;
 }
 
 .project-card p {
     color: var(--text-secondary);
-    margin-bottom: 1rem;
+    margin: 0 auto 1rem;
 }
 
 .tech-badge {
@@ -174,8 +257,17 @@ body {
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.875rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.25rem;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card .tech-badge {
+    margin: 0.25rem;
 }
 
 /* Tech Stack Section */
@@ -228,6 +320,30 @@ body {
     color: var(--accent);
 }
 
+/* Visualizations Grid */
+.visualizations-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.visualizations-grid figure {
+    text-align: center;
+}
+
+.visualizations-grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.visualizations-grid figcaption {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-toggle {
@@ -256,5 +372,15 @@ body {
 
     .bio {
         font-size: 1rem;
+    }
+
+    .visualizations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 769px) {
+    .visualizations-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
