@@ -94,7 +94,8 @@ body {
 
 /* Hero Section */
 .hero {
-    padding: 6rem 0;
+    padding: 3rem 0;
+    margin-top: 2rem;
     text-align: center;
 }
 
@@ -113,7 +114,7 @@ body {
 /* Hero Section with Avatar */
 .hero-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 3rem;
     max-width: 1000px;
@@ -128,12 +129,10 @@ body {
     object-fit: cover;
     border: 4px solid var(--bg-primary);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    flex-shrink: 0;
 }
 
 .hero-text {
-    flex: 1;
-    text-align: left;
+    text-align: center;
 }
 
 .hero h1 {
@@ -200,6 +199,9 @@ body {
     padding: 1.5rem;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .project-link {
@@ -255,8 +257,17 @@ body {
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.875rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.25rem;
+}
+
+.tech-stack {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card .tech-badge {
+    margin: 0.25rem;
 }
 
 /* Tech Stack Section */
