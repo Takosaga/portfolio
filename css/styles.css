@@ -296,6 +296,40 @@ body {
     font-weight: 500;
 }
 
+/* Dashboard Section */
+.dashboard-section {
+    padding: 4rem 0;
+}
+
+.dashboard-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-container {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-iframe,
+.dashboard-container iframe {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 0.5rem;
+    }
+
+    .dashboard-container iframe {
+        height: 500px !important;
+    }
+}
+
 /* Footer */
 .footer {
     padding: 3rem 0;
