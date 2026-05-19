@@ -138,8 +138,11 @@ window.addEventListener('scroll', () => {
     if (!rafScheduled) {
         rafScheduled = true;
         requestAnimationFrame(() => {
-            highlightNavLinks();
-            rafScheduled = false;
+            try {
+                highlightNavLinks();
+            } finally {
+                rafScheduled = false;
+            }
         });
     }
 });
