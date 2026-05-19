@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', () => {
             const isOpen = navMenu.classList.toggle('active');
-            navToggle.setAttribute('aria-expanded', isOpen);
+            navToggle.setAttribute('aria-expanded', String(isOpen));
         });
 
         // Close menu when clicking a link

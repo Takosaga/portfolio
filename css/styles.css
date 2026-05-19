@@ -115,11 +115,6 @@ body {
     transition: 0.3s;
 }
 
-.nav-toggle:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 4px;
-}
-
 /* Hero Section */
 .hero {
     padding: 3rem 0;
