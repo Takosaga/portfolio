@@ -132,4 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.addEventListener('scroll', highlightNavLinks);
+let rafScheduled = false;
+
+window.addEventListener('scroll', () => {
+    if (!rafScheduled) {
+        rafScheduled = true;
+        requestAnimationFrame(() => {
+            highlightNavLinks();
+            rafScheduled = false;
+        });
+    }
+});
