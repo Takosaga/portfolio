@@ -87,6 +87,12 @@ body {
     color: var(--accent);
 }
 
+.nav-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 /* Nav Toggle (Mobile) */
 .nav-toggle {
     display: none;
@@ -107,6 +113,11 @@ body {
     height: 3px;
     background-color: var(--text-primary);
     transition: 0.3s;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 /* Hero Section */
@@ -215,6 +226,11 @@ body {
     color: var(--bg-primary);
 }
 
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 /* Projects Section */
 .projects {
     padding: 6rem 0;
@@ -248,9 +264,10 @@ body {
     display: block;
 }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+.project-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 /* Project Card Images */
@@ -392,6 +409,11 @@ body {
 
 .social-links a:hover {
     color: var(--accent);
+}
+
+.social-links a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
 }
 
 /* Visualizations Grid */
@@ -549,8 +571,12 @@ body {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-.lightbox .prev { left: 30px; }
-.lightbox .next { right: 30px; }
+.lightbox .close-lightbox:focus-visible,
+.lightbox .nav-btn:focus-visible {
+    outline: 2px solid var(--color-on-dark);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
 
 @media (max-width: 768px) {
     .lightbox .prev { left: 15px; }
@@ -613,6 +639,13 @@ article > h2 {
     padding: 0.75rem;
     border: 1px solid var(--border);
     border-radius: 4px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus-visible {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(217, 114, 58, 0.3);
 }
 
 .form-textarea {
