@@ -4,3 +4,4 @@ docs/superpowers/specs/**/*
 
 # Also ignore the parent folder if needed (uncomment to enable)
 # **/superpowers/
+.agents/
