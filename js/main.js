@@ -77,19 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const images = imageSrcs.split(',').map(s => s.trim());
 
     let currentIndex = 0;
+    let triggerElement = null;
 
-    function openLightbox(index) {
+    function openLightbox(index, triggeredBy) {
         currentIndex = index;
+        triggerElement = triggeredBy || null;
         lightboxImg.src = images[currentIndex];
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
-        if (closeBtn.focus) closeBtn.focus();
+        closeBtn.focus();
     }
 
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-        if (closeBtn.blur) closeBtn.blur();
+        if (triggerElement) {
+            triggerElement.focus();
+            triggerElement = null;
+        }
     }
 
     function showNextImage(e) {
@@ -104,9 +109,33 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.src = images[currentIndex];
     }
 
+    // Focus trap within lightbox
+    function trapFocus(e) {
+        if (!lightbox.classList.contains('active')) return;
+        const focusableElements = lightbox.querySelectorAll(
+            'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+        );
+        const firstFocusable = focusableElements[0];
+        const lastFocusable = focusableElements[focusableElements.length - 1];
+
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusable) {
+                    e.preventDefault();
+                    lastFocusable.focus();
+                }
+            } else {
+                if (document.activeElement === lastFocusable) {
+                    e.preventDefault();
+                    firstFocusable.focus();
+                }
+            }
+        }
+    }
+
     // Attach figure click handlers
     figures.forEach((figure, index) => {
-        figure.addEventListener('click', () => openLightbox(index));
+        figure.addEventListener('click', () => openLightbox(index, figure));
     });
 
     // Close button
@@ -124,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
+        trapFocus(e);
         switch (e.key) {
             case 'ArrowLeft': showPreviousImage(e); break;
             case 'ArrowRight': showNextImage(e); break;
