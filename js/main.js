@@ -133,9 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let rafScheduled = false;
+let lastScrollY = -1;
 
 window.addEventListener('scroll', () => {
-    if (!rafScheduled) {
+    const currentScrollY = window.pageYOffset;
+    if (Math.abs(currentScrollY - lastScrollY) > 1 && !rafScheduled) {
         rafScheduled = true;
         requestAnimationFrame(() => {
             try {

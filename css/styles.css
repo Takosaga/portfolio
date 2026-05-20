@@ -40,7 +40,7 @@ body {
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 clamp(1rem, 4vw, 1.5rem);
 }
 
 /* Header & Navigation */
@@ -186,7 +186,7 @@ body {
 .btn {
     display: inline-block;
     background-color: var(--accent);
-    color: white;
+    color: var(--color-on-dark);
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     text-decoration: none;
@@ -424,17 +424,13 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 1.5rem;
-    }
-
     .nav-toggle {
         display: flex;
     }
 
     .nav-menu {
         position: absolute;
-        top: 60px;
+        top: calc(60px + 1px);
         left: 0;
         right: 0;
         background-color: var(--bg-primary);
