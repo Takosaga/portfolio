@@ -164,16 +164,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let rafScheduled = false;
 let lastScrollY = -1;
+let lastRunTime = 0;
 
 window.addEventListener('scroll', () => {
+    const now = Date.now();
+    if (now - lastRunTime < 100) return;
+
     const currentScrollY = window.pageYOffset;
-    if (Math.abs(currentScrollY - lastScrollY) > 1 && !rafScheduled) {
+    if (Math.abs(currentScrollY - lastScrollY) > 5 && !rafScheduled) {
         rafScheduled = true;
         requestAnimationFrame(() => {
             try {
                 highlightNavLinks();
             } finally {
                 rafScheduled = false;
+                lastRunTime = Date.now();
             }
         });
     }

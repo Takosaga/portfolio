@@ -1,5 +1,4 @@
 /* CSS Variables - Warm Neutral Theme */
-@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 :root {
     --bg-primary: #fdfcfb;
@@ -113,7 +112,19 @@ body {
     width: 25px;
     height: 3px;
     background-color: var(--text-primary);
-    transition: 0.3s;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Hero Section with Avatar */
@@ -276,6 +287,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .project-card {
+        min-height: 320px;
+    }
+
     .project-image-wrapper {
         height: clamp(140px, 35vw, 200px);
     }
@@ -446,7 +461,7 @@ body {
 
     .nav-menu {
         position: absolute;
-        top: calc(60px + 1px);
+        top: 100%;
         left: 0;
         right: 0;
         background-color: var(--bg-primary);
@@ -594,7 +609,6 @@ body {
 }
 
 .visualizations-grid figure:hover {
-    border-color: rgba(255, 255, 255, 0.6);
     transform: scale(1.03);
 }
 
