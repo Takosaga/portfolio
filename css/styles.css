@@ -1,5 +1,5 @@
 /* CSS Variables - Warm Neutral Theme */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 :root {
     --bg-primary: #fdfcfb;
@@ -13,7 +13,7 @@
     --shadow-md: 0 4px 12px rgba(30, 28, 26, 0.1);
     --shadow-lg: 0 4px 24px rgba(30, 28, 26, 0.25);
     --color-on-dark: #f5f0ec;
-    --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-heading: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --max-width: 1200px;
 }
