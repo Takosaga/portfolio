@@ -769,19 +769,39 @@ article h1 {
 
 .timeline-logos {
     display: flex;
-    gap: 0.75rem;
     align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    position: relative;
+    width: clamp(72px, 18vw, 90px);
+    height: clamp(64px, 16vw, 80px);
 }
 
 .timeline-logos img {
-    width: clamp(60px, 15vw, 80px);
-    height: clamp(60px, 15vw, 80px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(52px, 13vw, 68px);
+    height: clamp(52px, 13vw, 68px);
     border-radius: 50%;
     object-fit: cover;
     background-color: var(--bg-secondary);
     border: 3px solid var(--bg-primary);
     box-shadow: var(--shadow-sm);
+}
+
+.timeline-logos img:first-child {
+    z-index: 2;
+    right: 0;
+    object-position: center;
+    clip-path: circle(38% at 50% 50%);
+}
+
+.timeline-logos img:last-child {
+    z-index: 1;
+    left: 0;
+    width: clamp(44px, 11vw, 58px);
+    height: clamp(44px, 11vw, 58px);
 }
 
 .timeline-subtitle {
