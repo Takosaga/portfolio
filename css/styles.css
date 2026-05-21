@@ -320,9 +320,6 @@ body {
     margin: 0 0.5rem 1.5rem 1.5rem;
 }
 
-.project-card .tech-badge {
-    margin: 0 0.5rem 1.5rem 1.5rem;
-}
 
 /* Tech Stack Section */
 .tech-stack {
@@ -714,8 +711,8 @@ article h1 {
     content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    bottom: 0;
+    top: 40px;
+    bottom: 40px;
     width: 2px;
     background-color: var(--border);
 }
