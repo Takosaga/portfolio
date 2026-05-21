@@ -770,6 +770,31 @@ article h1 {
     margin: 0;
 }
 
+.timeline-logos {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.timeline-logos img {
+    width: clamp(60px, 15vw, 80px);
+    height: clamp(60px, 15vw, 80px);
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-secondary);
+    border: 3px solid var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    font-style: italic;
+    margin: 0 0 0.25rem;
+    line-height: 1.4;
+}
+
 @media (max-width: 768px) {
     .timeline-section {
         padding: 3rem 0;
