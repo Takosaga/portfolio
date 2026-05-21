@@ -691,11 +691,11 @@ article h1 {
 }
 
 /* Timeline Section */
-#timeline {
+.timeline-section {
     padding: 5rem 0;
 }
 
-#timeline h2 {
+.timeline-section h2 {
     font-family: var(--font-heading);
     text-align: left;
     margin-bottom: 3rem;
@@ -771,7 +771,7 @@ article h1 {
 }
 
 @media (max-width: 768px) {
-    #timeline {
+    .timeline-section {
         padding: 3rem 0;
     }
 
