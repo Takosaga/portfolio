@@ -177,6 +177,18 @@ if (!prefersReducedMotion) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        // After animation completes, lock in final state so hover can take over
+                        const staggerDelay = parseFloat(entry.target.style.getPropertyValue('--i')) * 80;
+                        setTimeout(() => {
+                            entry.target.querySelectorAll('.tl-avatar-wrap img, .tl-logos-pair .logo-left, .tl-logos-pair .logo-right').forEach(el => {
+                                el.style.opacity = '1';
+                                el.style.animationName = 'none';
+                            });
+                            entry.target.querySelectorAll('.tl-content').forEach(el => {
+                                el.style.opacity = '1';
+                                el.style.animationName = 'none';
+                            });
+                        }, 500 + staggerDelay + 100);
                         observer.unobserve(entry.target);
                     }
                 });
