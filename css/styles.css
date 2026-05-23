@@ -818,6 +818,11 @@ article h1 {
     100% { transform: scale(1); opacity: 1; }
 }
 
+@keyframes tl-icon-pop-pair {
+    0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
+    100% { transform: scale(1) translateY(-50%); opacity: 1; }
+}
+
 @keyframes tl-content-pop {
     0% { transform: translateX(30px); opacity: 0; }
     100% { transform: translateX(0); opacity: 1; }
@@ -829,18 +834,13 @@ article h1 {
     opacity: 0;
 }
 
-.tl-item .tl-content {
-    opacity: 0;
-}
-
-.tl-item.visible .tl-avatar-wrap img,
-.tl-item.visible .tl-logos-pair .logo-left,
-.tl-item.visible .tl-logos-pair .logo-right {
+.tl-item.visible .tl-avatar-wrap img {
     animation: tl-icon-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i, 0) * 80ms) both;
 }
 
-.tl-item.visible .tl-content {
-    animation: tl-content-pop 450ms cubic-bezier(0.25, 1, 0.5, 1) calc(var(--i, 0) * 80ms + 40ms) both;
+.tl-item.visible .tl-logos-pair .logo-left,
+.tl-item.visible .tl-logos-pair .logo-right {
+    animation: tl-icon-pop-pair 500ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i, 0) * 80ms) both;
 }
 
 /* End Timeline Pop-out Animation */
