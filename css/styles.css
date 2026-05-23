@@ -871,7 +871,7 @@ article h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 58px;
+    left: 42px;
     width: clamp(52px, 13vw, 68px);
     height: clamp(52px, 13vw, 68px);
     border-radius: 50%;
@@ -890,7 +890,7 @@ article h1 {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 68px;
+    right: 48px;
     width: clamp(52px, 13vw, 68px);
     height: clamp(52px, 13vw, 68px);
     border-radius: 50%;
