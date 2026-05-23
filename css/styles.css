@@ -917,7 +917,6 @@ article h1 {
     position: relative;
     width: clamp(52px, 13vw, 68px);
     height: auto;
-    margin-left: -20px;
 }
 
 .tl-logos-pair .logo-left {
