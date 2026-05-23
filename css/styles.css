@@ -819,8 +819,8 @@ article h1 {
 }
 
 @keyframes tl-icon-pop-pair {
-    0% { transform: scale(0.5) translateY(-50%); opacity: 0; }
-    100% { transform: scale(1) translateY(-50%); opacity: 1; }
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes tl-content-pop {
@@ -891,13 +891,13 @@ article h1 {
 }
 
 .tl-item:hover .tl-logos-pair .logo-left {
-    transform: translateY(-50%) translate(calc(clamp(26px, 6.5vw, 34px) * -1)) scale(1.12);
+    transform: translateY(-4px) scale(1.12);
     filter: saturate(0.5) brightness(0.92) !important;
     box-shadow: 0 8px 24px rgba(30, 28, 26, 0.22);
 }
 
 .tl-item:hover .tl-logos-pair .logo-right {
-    transform: translateY(-50%) translate(clamp(26px, 6.5vw, 34px)) scale(1.12);
+    transform: translateY(4px) scale(1.12);
     filter: saturate(0.5) brightness(0.92) !important;
     box-shadow: 0 8px 24px rgba(30, 28, 26, 0.22);
 }
@@ -911,20 +911,18 @@ article h1 {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 4px;
     flex-shrink: 0;
     position: relative;
-    width: clamp(72px, 18vw, 90px);
-    height: clamp(64px, 16vw, 80px);
+    width: clamp(52px, 13vw, 68px);
+    height: auto;
+    margin-left: -20px;
 }
 
 .tl-logos-pair .logo-left {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 50%;
-    margin-left: calc(clamp(26px, 6.5vw, 34px) * -1);
-    width: clamp(52px, 13vw, 68px);
-    height: clamp(52px, 13vw, 68px);
+    width: clamp(44px, 11vw, 58px);
+    height: clamp(44px, 11vw, 58px);
     border-radius: 50%;
     object-fit: cover;
     background-color: var(--bg-secondary);
@@ -938,13 +936,8 @@ article h1 {
 }
 
 .tl-logos-pair .logo-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 50%;
-    margin-left: clamp(26px, 6.5vw, 34px);
-    width: clamp(52px, 13vw, 68px);
-    height: clamp(52px, 13vw, 68px);
+    width: clamp(44px, 11vw, 58px);
+    height: clamp(44px, 11vw, 58px);
     border-radius: 50%;
     object-fit: cover;
     background-color: var(--bg-secondary);
