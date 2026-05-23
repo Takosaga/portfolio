@@ -812,7 +812,39 @@ article h1 {
     line-height: 1.4;
 }
 
-/* New Timeline Layout */
+/* Timeline Pop-out Animation */
+@keyframes tl-icon-pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tl-content-pop {
+    0% { transform: translateX(30px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.tl-item .tl-avatar-wrap img,
+.tl-item .tl-logos-pair .logo-left,
+.tl-item .tl-logos-pair .logo-right {
+    opacity: 0;
+}
+
+.tl-item .tl-content {
+    opacity: 0;
+}
+
+.tl-item.visible .tl-avatar-wrap img,
+.tl-item.visible .tl-logos-pair .logo-left,
+.tl-item.visible .tl-logos-pair .logo-right {
+    animation: tl-icon-pop 500ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--i, 0) * 80ms) both;
+}
+
+.tl-item.visible .tl-content {
+    animation: tl-content-pop 450ms cubic-bezier(0.25, 1, 0.5, 1) calc(var(--i, 0) * 80ms + 40ms) both;
+}
+
+/* End Timeline Pop-out Animation */
+
 .tl-item {
     display: flex;
     align-items: center;

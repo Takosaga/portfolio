@@ -162,6 +162,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Timeline Pop-out Animation
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!prefersReducedMotion) {
+    const timelineItems = document.querySelectorAll('.timeline .tl-item');
+    if (timelineItems.length > 0) {
+        timelineItems.forEach((item, index) => {
+            item.style.setProperty('--i', String(index));
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        timelineItems.forEach(item => observer.observe(item));
+    }
+}
+
 let rafScheduled = false;
 let lastScrollY = -1;
 let lastRunTime = 0;
