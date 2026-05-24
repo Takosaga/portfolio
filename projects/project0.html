@@ -53,34 +53,47 @@
                 <li><strong>Tools &amp; Workflows:</strong> Developed proficiency with industry-standard development tools, version control, and containerization for ML workflows</li>
             </ul>
 
-            <h2>Internship Experience</h2>
+            <h2>AI Engineering Intern</h2>
             <p class="timeline-date" style="margin-bottom: 1rem; color: var(--color-text-secondary);">Mar 2026 – Present</p>
             <p><strong>Note:</strong> This role involves confidential, NDA-protected work. Specific project names, client details, and proprietary metrics are omitted. Content is described in general terms only.</p>
 
-            <h3>Skills Demonstrated</h3>
+            <h3>AI-Powered Developer Assistance Microservice — Team Lead</h3>
+            <p>Led a team of 3 engineers for an internal AI-driven microservice that assists developers by automating contextual analysis of software changes. Organized team meetings, led technical discussions, and authored backlog issues using GitHub Projects to guide development. The system leverages large language models to generate structured insights and delivers actionable feedback directly within the developer workflow — reducing manual effort and improving consistency across engineering teams.</p>
+
+            <h3>Key Responsibilities</h3>
             <ul>
-                <li><strong>ML Model Development &amp; Deployment:</strong> Designed, trained, and deployed machine learning models for production use cases</li>
-                <li><strong>Data Pipeline Architecture:</strong> Built scalable data processing pipelines for model training and inference</li>
-                <li><strong>Cloud Infrastructure:</strong> Leveraged cloud platforms for model hosting, data storage, and compute resources</li>
-                <li><strong>Team Collaboration &amp; Agile Methodology:</strong> Worked within cross-functional teams using agile practices for iterative development</li>
-                <li><strong>API Design &amp; Integration:</strong> Developed and integrated APIs to expose model capabilities to downstream services</li>
+                <li><strong>AI Analysis Pipeline:</strong> Engineered an AI analysis pipeline that constructs contextual prompts from enriched change data, calls Azure OpenAI models with retry logic, and validates structured JSON responses using Pydantic</li>
+                <li><strong>RAG Pipeline:</strong> Proposed and built a Retrieval-Augmented Generation (RAG) pipeline that indexes Python codebases using AST-based semantic chunking, Azure OpenAI embeddings, and PostgreSQL with pgvector for vector similarity search</li>
+                <li><strong>Output Publisher:</strong> Implemented an intelligent output publisher that updates existing AI-generated comments in-place using deduplication markers, avoiding duplicate notifications to users</li>
+                <li><strong>LLM Observability:</strong> Integrated LangSmith for LLM observability, enabling tracing and monitoring of model inference calls with token usage metadata</li>
+                <li><strong>Documentation:</strong> Authored comprehensive technical documentation including architecture overviews, evaluation reports comparing multiple prompt variants, and contributor onboarding guides</li>
             </ul>
 
             <h3>Tech Stack</h3>
             <div class="tech-stack">
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">TensorFlow / PyTorch</span>
+                <span class="tech-badge">Python 3.11</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">Azure OpenAI (GPT-4.1-mini, text-embedding-3-small)</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">pgvector</span>
                 <span class="tech-badge">Docker</span>
-                <span class="tech-badge">Kubernetes</span>
-                <span class="tech-badge">Cloud Platforms</span>
+                <span class="tech-badge">Azure Container Apps</span>
+                <span class="tech-badge">GitHub Actions</span>
+                <span class="tech-badge">Pydantic</span>
+                <span class="tech-badge">LangSmith</span>
+                <span class="tech-badge">pytest</span>
+                <span class="tech-badge">httpx</span>
+                <span class="tech-badge">uv</span>
             </div>
 
-            <h3>Key Contributions</h3>
+            <h3>Skills Demonstrated</h3>
             <ul>
-                <li><strong>ML Model Development:</strong> Contributed to the development and refinement of machine learning models addressing real-world business problems</li>
-                <li><strong>Pipeline Design:</strong> Designed and implemented data pipelines supporting model training, evaluation, and inference workflows</li>
-                <li><strong>Cross-functional Collaboration:</strong> Partnered with engineers, data scientists, and domain experts to deliver integrated solutions</li>
-                <li><strong>Performance Optimization:</strong> Applied optimization techniques to improve model inference performance and resource utilization</li>
+                <li><strong>LLM Application Development:</strong> Integrated Azure OpenAI models into production microservices with structured prompting, response validation, and observability</li>
+                <li><strong>Async Backend Engineering:</strong> Built high-concurrency Python services using FastAPI, async HTTP clients, and event-driven architectures</li>
+                <li><strong>RAG &amp; Vector Search:</strong> Implemented retrieval-augmented generation pipelines with semantic chunking, dense embeddings, and hybrid search (vector + full-text)</li>
+                <li><strong>Cloud-Native Deployment:</strong> Containerized applications and configured CI/CD for Azure cloud infrastructure</li>
+                <li><strong>Software Quality &amp; Testing:</strong> Wrote comprehensive async test suites with HTTP mocking, covering endpoints, pipeline orchestration, retry behavior, and context limits</li>
+                <li><strong>Technical Documentation:</strong> Authored architecture documentation, evaluation reports, and developer onboarding guides</li>
             </ul>
 
             <h2>Timeline</h2>
