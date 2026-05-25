@@ -109,6 +109,12 @@ body {
     justify-content: center;
 }
 
+.nav-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 .nav-toggle span {
     width: 25px;
     height: 3px;
@@ -281,10 +287,6 @@ body {
 
 .project-card:hover .project-image {
     transform: scale(1.05);
-}
-
-.project-card:hover {
-    will-change: transform, box-shadow;
 }
 
 @media (max-width: 768px) {
@@ -499,6 +501,7 @@ body {
     top: -100%;
     left: 0;
     right: 0;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     background-color: var(--accent);
@@ -693,6 +696,17 @@ article h1 {
 .form-input:invalid:not(:placeholder-shown):focus-visible {
     border-color: #c53030;
     box-shadow: 0 0 0 3px rgba(197, 48, 48, 0.25);
+}
+
+.error-message {
+    display: none;
+    color: #c53030;
+    font-size: 0.8125rem;
+    margin-top: 0.25rem;
+}
+
+.form-input:invalid:not(:placeholder-shown) ~ .error-message {
+    display: block;
 }
 
 /* Reduced Motion */
@@ -938,5 +952,9 @@ article h1 {
 
     .tl-logos-pair {
         margin-left: 0;
+    }
+
+    .timeline::before {
+        display: none;
     }
 }
