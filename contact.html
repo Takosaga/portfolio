@@ -32,8 +32,7 @@
         <section id="contact" class="contact-section">
             <h1 class="contact-title">Get In Touch</h1>
             
-            <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="c8934c56-5fca-42b7-a3dc-4a0d334791eb">
+            <form id="contact-form" class="contact-form">
                 <input type="hidden" name="subject" value="New contact form submission">
                 <input type="hidden" name="from_name" value="Portfolio Contact Form">
 
@@ -82,21 +81,32 @@
                     e.preventDefault();
 
                     const formData = new FormData(form);
-                    const data = Object.fromEntries(formData);
+                    formData.append("access_key", "c8934c56-5fca-42b7-a3dc-4a0d334791eb");
+
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
 
                     try {
-                        status.textContent = 'Sending...';
-                        
-                        // TODO: Replace with actual email service API
-                        // Example: fetch('/api/send-email', { method: 'POST', body: JSON.stringify(data) })
-                        
-                        await new Promise(resolve => setTimeout(resolve, 1000));
-                        
-                        status.textContent = 'Message sent! I\'ll get back to you soon.';
-                        form.reset();
+                        const response = await fetch("https://api.web3forms.com/submit", {
+                            method: "POST",
+                            body: formData
+                        });
+
+                        const data = await response.json();
+
+                        if (response.ok) {
+                            status.textContent = 'Message sent! I\'ll get back to you soon.';
+                            form.reset();
+                        } else {
+                            status.textContent = 'Error: ' + data.message;
+                        }
                     } catch (error) {
-                        status.textContent = 'Error sending message. Please try again later.';
-                        console.error('Form submission error:', error);
+                        status.textContent = 'Something went wrong. Please try again later.';
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
                     }
                 });
             }
