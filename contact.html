@@ -32,7 +32,11 @@
         <section id="contact" class="contact-section">
             <h1 class="contact-title">Get In Touch</h1>
             
-            <form id="contact-form" class="contact-form">
+            <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="c8934c56-5fca-42b7-a3dc-4a0d334791eb">
+                <input type="hidden" name="subject" value="New contact form submission">
+                <input type="hidden" name="from_name" value="Portfolio Contact Form">
+
                 <div class="form-group">
                     <label for="name" class="form-label">Name <span aria-hidden="true">*</span><span class="sr-only">(required)</span></label>
                     <input type="text" id="name" name="name" required placeholder="" class="form-input" aria-required="true" aria-describedby="name-error">
