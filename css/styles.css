@@ -57,6 +57,30 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 60px;
+    gap: 1rem;
+}
+
+.nav-social {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.nav-social a img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.nav-social a:hover img {
+    opacity: 0.75;
+    transform: scale(1.1);
+}
+
+.nav-social a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 4px;
 }
 
 .logo {
