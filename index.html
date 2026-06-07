@@ -211,11 +211,26 @@
 
         <section id="dashboard-teaser" class="dashboard-teaser container">
             <h2>Dashboard</h2>
-            <article class="project-card project-card--full">
+            <article class="teaser-card project-card--full">
                 <a href="dashboard.html" class="project-link">
-                    <div class="teaser-icon">📊</div>
+                    <div class="teaser-sparkline-wrap">
+                        <svg class="teaser-sparkline" viewBox="0 0 200 60" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="sparkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#d9723a" stop-opacity="0.4"/>
+                                    <stop offset="100%" stop-color="#d9723a" stop-opacity="1"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="teaser-sparkline-path" d="M0,50 L18,46 L36,48 L54,40 L72,38 L90,35 L108,30 L126,28 L144,22 L162,18 L180,14 L200,10" fill="none" stroke="url(#sparkGrad)" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle class="teaser-sparkline-dot" cx="200" cy="10" r="3.5" fill="#d9723a"/>
+                        </svg>
+                    </div>
                     <h3>Personal LLM Token Usage: Zero Cost</h3>
-                    <p>Interactive dashboard tracking my personal LLM token usage — at zero cost.</p>
+                    <p>Interactive dashboard tracking my personal LLM token usage at zero cost.</p>
+                    <div class="teaser-counter">
+                        <span class="counter-number" id="token-count">0</span>
+                        <span class="counter-label">tokens processed · $0 spent</span>
+                    </div>
                 </a>
             </article>
         </section>

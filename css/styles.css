@@ -401,10 +401,107 @@ body {
     grid-column: 1 / -1;
 }
 
-.teaser-icon {
-    font-size: 3rem;
-    text-align: center;
-    padding: 2rem 0 1rem;
+/* Teaser Card */
+.teaser-card {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.6s cubic-bezier(0.25, 1, 0.5, 1),
+                box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.teaser-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.teaser-card::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.teaser-card:hover::before {
+    opacity: 1;
+}
+
+.teaser-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Sparkline */
+.teaser-sparkline-wrap {
+    position: relative;
+    padding: 2rem 0 1.5rem;
+    overflow: hidden;
+}
+
+.teaser-sparkline {
+    width: 100%;
+    height: 60px;
+    display: block;
+}
+
+.teaser-sparkline-path {
+    opacity: 0.35;
+    stroke-dasharray: 300;
+    stroke-dashoffset: -300;
+    animation: spark-trace 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes spark-trace {
+    to { stroke-dashoffset: 0; }
+}
+
+.teaser-sparkline-dot {
+    opacity: 0;
+    animation: dot-fade-in 0.3s ease-out forwards;
+    animation-delay: 1.7s;
+}
+
+@keyframes dot-fade-in {
+    to { opacity: 1; }
+}
+
+.teaser-card:hover .teaser-sparkline-dot {
+    animation: dot-pulse 2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes dot-pulse {
+    0%, 100% { r: 3.5; opacity: 1; }
+    50% { r: 5; opacity: 0.6; }
+}
+
+/* Token Counter */
+.teaser-counter {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 1rem 1.5rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+.counter-number {
+    font-family: 'Figtree', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.counter-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1;
 }
 
 /* Dashboard Section (full page on dashboard.html) */
@@ -772,6 +869,16 @@ article h1 {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+
+    /* Ensure sparkline is fully visible */
+    .teaser-sparkline-path {
+        stroke-dashoffset: 0 !important;
+        opacity: 0.35 !important;
+    }
+
+    .teaser-sparkline-dot {
+        opacity: 1 !important;
     }
 }
 

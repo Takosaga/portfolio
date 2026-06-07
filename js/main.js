@@ -212,6 +212,61 @@ if (!prefersReducedMotion) {
     }
 }
 
+// Dashboard Teaser Entrance Animation
+if (!prefersReducedMotion) {
+    const teaserCard = document.querySelector('.teaser-card');
+    if (teaserCard) {
+        // Trigger card reveal
+        setTimeout(() => teaserCard.classList.add('visible'), 50);
+
+        // Token counter animation
+        const counterEl = document.getElementById('token-count');
+        if (counterEl) {
+            const targetNum = 1284769;
+            const duration = 1500;
+            let start = null;
+
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+
+            function tick(timestamp) {
+                if (!start) start = timestamp;
+                const elapsed = timestamp - start;
+                const progress = Math.min(elapsed / duration, 1);
+                counterEl.textContent = Math.floor(easeOutQuart(progress) * targetNum).toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                }
+            }
+
+            setTimeout(() => requestAnimationFrame(tick), 200);
+        }
+    }
+}
+
+// Console easter egg
+(function() {
+    const style = [
+        'color: #d9723a',
+        'font-size: 12px',
+        'padding: 4px 8px',
+        'background: #fdfcfb',
+        'border-radius: 4px 4px 0 0'
+    ].join(';');
+    const styleEnd = [
+        'color: #5a534f',
+        'font-size: 12px',
+        'padding: 4px 8px',
+        'background: transparent',
+        'border-radius: 0 0 4px 4px'
+    ].join(';');
+
+    console.log('%c📊 Dashboard Teaser Easter Egg!', style);
+    console.log('%cYou found it. Like the dashboard itself — everything is zero cost.', styleEnd);
+    console.log('%cCurious how it works? %chttps://github.com/Takosaga', style, 'color: #d9723a; font-weight: bold;', styleEnd);
+})();
+
 let rafScheduled = false;
 let lastScrollY = -1;
 let lastRunTime = 0;
