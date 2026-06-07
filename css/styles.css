@@ -382,26 +382,42 @@ body {
     color: var(--text-primary);
 }
 
-/* Dashboard Section */
-.dashboard-section {
+/* Dashboard Teaser Section (index.html) */
+.dashboard-teaser {
     padding: 4rem 0;
 }
 
-.dashboard-section h2 {
-    text-align: center;
+.dashboard-teaser h2 {
+    font-family: var(--font-heading);
+    text-align: left;
     margin-bottom: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
+.project-card--full {
+    max-width: 1000px;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+}
+
+.teaser-icon {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+
+/* Dashboard Section (full page on dashboard.html) */
 .dashboard-container {
-    background-color: var(--bg-secondary);
+    width: 100%;
+    height: 70vh;
     border-radius: 8px;
-    padding: 1rem;
     box-shadow: var(--shadow-sm);
+    background-color: var(--bg-secondary);
 }
 
 .dashboard-container iframe {
     width: 100%;
-    height: 70vh;
+    height: 100%;
     min-height: 500px;
     max-height: 900px;
     border: none;

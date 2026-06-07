@@ -40,6 +40,18 @@ const sections = document.querySelectorAll('section[id]');
 
 function highlightNavLinks() {
     const scrollY = window.pageYOffset;
+    const pathname = window.location.pathname;
+
+    // Dashboard page: always highlight Dashboard nav link
+    if (pathname.includes('dashboard')) {
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const dashboardLink = document.querySelector('.nav-link[href="dashboard.html"]');
+        if (dashboardLink) {
+            dashboardLink.classList.add('active');
+            dashboardLink.setAttribute('aria-current', 'page');
+        }
+        return;
+    }
 
     document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
 
