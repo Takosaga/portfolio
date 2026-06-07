@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-07T00:00:00.000Z",
+  "title": "Design System: Gonzalo Gamez — Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Terracotta",
+        "canonical": "oklch(65% 0.18 52)",
+        "tonalRamp": ["#7a3e1d", "#9c4f25", "#be612d", "#d9723a", "#e8946a", "#f0b496", "#f7d0be", "#fae8dc"]
+      },
+      "neutral-bg-primary": {
+        "role": "neutral",
+        "displayName": "Warm Ivory",
+        "canonical": "oklch(98% 0.005 85)",
+        "tonalRamp": ["#1e1c1a", "#3d3a37", "#5c5854", "#7b7671", "#9a948e", "#b9b2ab", "#d8d0c8", "#fdfcfb"]
+      },
+      "neutral-bg-secondary": {
+        "role": "neutral",
+        "displayName": "Sand",
+        "canonical": "oklch(95% 0.008 85)",
+        "tonalRamp": ["#171614", "#2e2b28", "#45413d", "#5c5752", "#736d67", "#8a837c", "#a39b93", "#f5f0ec"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "oklch(12% 0.008 85)",
+        "tonalRamp": ["#0e0d0c", "#1e1c1a", "#2f2d2a", "#403d39", "#514e49", "#625e58", "#736f68", "#847f77"]
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "Warm Gray",
+        "canonical": "oklch(36% 0.012 85)",
+        "tonalRamp": ["#0c0b0a", "#191716", "#262422", "#33302e", "#403d3a", "#4d4a46", "#5a534f", "#675f5a"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Clay",
+        "canonical": "oklch(91% 0.006 85)",
+        "tonalRamp": ["#0b0a09", "#171514", "#232120", "#2f2c2a", "#3b3735", "#474240", "#524d4a", "#e8e2dc"]
+      },
+      "error": {
+        "role": "neutral",
+        "displayName": "Signal Red",
+        "canonical": "oklch(48% 0.16 25)",
+        "tonalRamp": ["#3d0e0e", "#5c1a1a", "#7b2828", "#b53a3a", "#cc5f5f", "#dd8a8a", "#eab4b4", "#f6d8d8"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero name only." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings." },
+      "title": { "displayName": "Title", "purpose": "Card titles, timeline entry titles." },
+      "body": { "displayName": "Body", "purpose": "All prose content." },
+      "label": { "displayName": "Label", "purpose": "Tech badges, timestamps, metadata." }
+    },
+    "shadows": [
+      { "name": "ambient-low", "value": "0 2px 8px rgba(30, 28, 26, 0.08)", "purpose": "Lightbox default state, subtle container separation." },
+      { "name": "medium", "value": "0 4px 12px rgba(30, 28, 26, 0.1)", "purpose": "Project card hover lift with translateY(-2px)." },
+      { "name": "strong", "value": "0 4px 24px rgba(30, 28, 26, 0.25)", "purpose": "Lightbox image shadow, teaser hover elevation." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default transition easing for state changes." },
+      { "name": "ease-out-quart", "value": "ease-out-quart", "purpose": "Token counter animation, fade-in reveals." },
+      { "name": "spring-pop", "value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "purpose": "Timeline avatar pop-out animations." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "btn",
+      "description": "Terracotta CTA button for primary actions like 'GitHub Repository'.",
+      "html": "<button class=\"ds-btn-primary\">Get Started</button>",
+      "css": ".ds-btn-primary { background: #d9723a; color: #f5f0ec; padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 500; font-family: 'Figtree', -apple-system, sans-serif; border: none; cursor: pointer; transition: opacity 0.2s; } .ds-btn-primary:hover { opacity: 0.9; } .ds-btn-primary:focus-visible { outline: 2px solid #d9723a; outline-offset: 3px; }"
+    },
+    {
+      "name": "Tech Badge",
+      "kind": "chip",
+      "refersTo": "tech-badge",
+      "description": "Compact label for displaying technology names on project cards.",
+      "html": "<span class=\"ds-badge\">Python</span>",
+      "css": ".ds-badge { display: inline-block; background: #fdfcfb; color: #b5552a; padding: 4px 12px; border-radius: 4px; font-size: 0.875rem; font-weight: 500; font-family: 'Figtree', -apple-system, sans-serif; margin: 0 0.5rem 1.5rem 1.5rem; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "project-card",
+      "description": "Two-column project card with image, title, description, and tech badges.",
+      "html": "<article class=\"ds-card\"><a href=\"#\" class=\"ds-card-link\"><div class=\"ds-card-image\"><img src=\"placeholder.jpg\" alt=\"Project preview\"></div><h3>Project Title</h3><p>Description text here.</p></a><span class=\"ds-badge\">Python</span><span class=\"ds-badge\">FastAPI</span></article>",
+      "css": ".ds-card { background: #f5f0ec; border-radius: 8px; overflow: hidden; transition: transform 0.2s ease-out, box-shadow 0.2s ease-out; } .ds-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(30, 28, 26, 0.1); } .ds-card-link { color: inherit; text-decoration: none; display: block; } .ds-card-image { width: 100%; height: 200px; overflow: hidden; border-radius: 8px 8px 0 0; } .ds-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease-out; } .ds-card:hover .ds-card-image img { transform: scale(1.05); } .ds-card h3 { font-family: 'Manrope', -apple-system, sans-serif; margin: 1.25rem 1.5rem 0.5rem; font-size: 1.125rem; font-weight: 700; text-align: left; } .ds-card p { color: #5a534f; margin: 0 1.5rem 1rem; line-height: 1.6; text-align: left; }"
+    },
+    {
+      "name": "Form Input",
+      "kind": "input",
+      "refersTo": "form-input",
+      "description": "Text input and textarea for the contact form.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\">Name</label><input type=\"text\" class=\"ds-input\" placeholder=\"\"></div>",
+      "css": ".ds-input { width: 100%; padding: 12px; border: 1px solid #e8e2dc; border-radius: 4px; font-family: 'Figtree', -apple-system, sans-serif; font-size: 1rem; background: #fdfcfb; color: #1e1c1a; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input:focus-visible { border-color: #d9723a; outline: none; box-shadow: 0 0 0 3px rgba(217, 114, 58, 0.3); } .ds-label { display: block; margin-bottom: 0.5rem; font-weight: 500; font-family: 'Figtree', -apple-system, sans-serif; } .ds-input:invalid:not(:placeholder-shown) { border-color: #b53a3a; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Sticky header with logo, nav links, social icons, and mobile hamburger toggle.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"ds-logo\">Gonzalo Gamez</a><ul class=\"ds-nav-menu\"><li><a href=\"#\" class=\"ds-nav-link active\">About</a></li><li><a href=\"#\" class=\"ds-nav-link\">Projects</a></li></ul><button class=\"ds-nav-toggle\" aria-label=\"Toggle navigation\"></button></nav>",
+      "css": ".ds-nav { position: sticky; top: 0; background: #fdfcfb; border-bottom: 1px solid #e8e2dc; z-index: 100; } .ds-nav { display: flex; justify-content: space-between; align-items: center; height: 60px; max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 1.5rem); gap: 1rem; } .ds-logo { font-family: 'Manrope', -apple-system, sans-serif; font-size: 1.25rem; font-weight: 700; color: #1e1c1a; text-decoration: none; } .ds-nav-menu { display: flex; list-style: none; gap: 2rem; } .ds-nav-link { color: #5a534f; text-decoration: none; font-weight: 500; font-family: 'Figtree', -apple-system, sans-serif; transition: color 0.2s; } .ds-nav-link:hover, .ds-nav-link.active { color: #b5552a; } .ds-nav-link:focus-visible { outline: 2px solid #d9723a; outline-offset: 4px; border-radius: 2px; } .ds-nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 10px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; } .ds-nav-toggle span { width: 25px; height: 3px; background-color: #1e1c1a; transition: transform 0.3s ease, opacity 0.3s ease; } @media (max-width: 768px) { .ds-nav-toggle { display: flex; } .ds-nav-menu { display: none; } .ds-nav-menu.active { display: flex; flex-direction: column; padding: 1rem; border-bottom: 1px solid #e8e2dc; position: absolute; top: 100%; left: 0; right: 0; background: #fdfcfb; } }"
+    },
+    {
+      "name": "Timeline Entry",
+      "kind": "custom",
+      "refersTo": "tl-item",
+      "description": "Career timeline item with avatar/icon, title, location, and date.",
+      "html": "<article class=\"ds-timeline-item\"><div class=\"ds-timeline-avatar\"><img src=\"logo.png\" alt=\"Company\"></div><div class=\"ds-timeline-content\"><h3>Role Title</h3><p class=\"ds-timeline-sub\">Subtitle or description</p><p class=\"ds-timeline-loc\">Location · Dates</p></div></article>",
+      "css": ".ds-timeline { position: relative; padding-left: 3rem; max-width: 800px; margin: 0 auto; } .ds-timeline::before { content: ''; position: absolute; left: 0; top: 40px; bottom: 40px; width: 2px; background-color: #e8e2dc; } .ds-timeline-item { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2.5rem; position: relative; } .ds-timeline-avatar img { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; background-color: #f5f0ec; border: 2px solid #d9723a; box-shadow: 0 2px 8px rgba(30, 28, 26, 0.08); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); } .ds-timeline-item:hover .ds-timeline-avatar img { transform: translateY(-4px) scale(1.12); box-shadow: 0 8px 24px rgba(30, 28, 26, 0.22); } .ds-timeline-content { flex: 1; padding-top: 0.5rem; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); } .ds-timeline-item:hover .ds-timeline-content { transform: translateX(-4px); } .ds-timeline-content h3 { font-family: 'Manrope', -apple-system, sans-serif; font-size: 1.125rem; font-weight: 700; margin: 0 0 0.25rem; line-height: 1.3; color: #1e1c1a; } .ds-timeline-sub { color: #5a534f; font-size: 0.9375rem; font-style: italic; margin: 0 0 0.25rem; } .ds-timeline-loc { color: #5a534f; font-size: 0.9375rem; margin: 0 0 0.25rem; } @media (max-width: 768px) { .ds-timeline { padding-left: 2.5rem; } .ds-timeline::before { display: none; } .ds-timeline-item { flex-direction: column; align-items: center; text-align: center; } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Technical Spec Sheet",
+    "overview": "This is a portfolio built like engineering documentation: clean, precise, no decoration without purpose. The visual language mirrors the work — AI systems that are transparent, explainable, and well-structured. Warm tones (terracotta accent on an off-white canvas) keep it human; the layout discipline keeps it sharp. Every section presents evidence: project artifacts, tech stacks, career timeline, data visualizations. Nothing exists to fill space.",
+    "keyCharacteristics": [
+      "Warm neutral canvas with a single committed accent (terracotta)",
+      "Two-family typography: Manrope for headings (structural), Figtree for body (readable)",
+      "Tonal layering over heavy shadows — surfaces distinguished by subtle background shifts",
+      "Asymmetric layouts where content demands it; left-aligned, not center-stacked",
+      "Evidence-first: data visualizations, real project images, concrete tech badges"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "The terracotta accent (#d9723a) appears on ≤10% of any given screen. Its scarcity is what makes it effective.", "section": "colors" },
+      { "name": "The Weight Gap Rule", "body": "Heading weights start at 700 and go up to 800 — no 500 or 600 in headings. This creates a hard step from body (400) to the smallest heading (700), a ≥1.75 weight ratio that makes hierarchy unambiguous even without size contrast.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Shadows appear only as a response to state (hover, focus, active). A card that shadows without user interaction is guessing at importance — let content hierarchy decide what matters.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use terracotta (#d9723a) sparingly — on interactive elements, data visualization accents, and structural borders.",
+      "Do let content determine layout direction. Left-aligned sections with asymmetric compositions feel more designed than centered stacks.",
+      "Do maintain the weight gap: body at 400, all headings at 700+.",
+      "Do use tonal layering as the primary depth strategy.",
+      "Do keep animations purposeful: ease-out-quart or ease-out-expo curves.",
+      "Do use real project imagery — data visualizations, screenshots, photos of work artifacts."
+    ],
+    "donts": [
+      "Don't use dark mode as a default or aesthetic crutch.",
+      "Don't reach for SaaS-cream patterns: gradient hero metrics, blue-on-white corporate templates, identical card grids.",
+      "Don't use side-stripe borders (border-left or border-right greater than 1px as a colored accent).",
+      "Don't use gradient text (background-clip: text with gradient).",
+      "Don't use glassmorphism (blurs, frosted glass) as a default treatment.",
+      "Don't nest cards inside other cards.",
+      "Don't add decorative elements that don't serve information, navigation, or interaction."
+    ]
+  }
+}
