@@ -222,7 +222,7 @@ if (!prefersReducedMotion) {
         // Token counter animation
         const counterEl = document.getElementById('token-count');
         if (counterEl) {
-            const targetNum = 1284769;
+            const targetNum = 283985437;
             const duration = 1500;
             let start = null;
 
