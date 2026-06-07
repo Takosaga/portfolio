@@ -355,23 +355,46 @@ body {
 
 /* Tech Stack Section */
 .tech-stack {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background-color: var(--bg-secondary);
 }
 
 .tech-stack h2 {
     font-family: var(--font-heading);
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-.tech-list {
+/* Category rows */
+.tech-categories {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.tech-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.tech-category__label {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.tech-category__items {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    list-style: none;
-    max-width: 800px;
+    justify-content: center;
+    width: 100%;
 }
 
 .tech-list__link {
